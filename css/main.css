@@ -179,6 +179,30 @@ textarea {
     transform: rotate(-8deg) scale(1.05);
 }
 
+/* Logo container — no background, no border */
+.logo-container {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0;
+    overflow: hidden;
+}
+
+.nav-logo img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    transition: transform var(--transition-normal);
+}
+
+.nav-logo:hover img {
+    transform: rotate(-8deg) scale(1.05);
+}
+
 .nav-logo-text {
     font-weight: 700;
     font-size: var(--font-size-lg);
