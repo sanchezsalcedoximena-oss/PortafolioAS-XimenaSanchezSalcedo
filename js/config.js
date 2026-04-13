@@ -6,8 +6,8 @@
 // 2. Settings > API → copy URL + anon key
 // ============================================
 
-const SUPABASE_URL = '';
-const SUPABASE_ANON_KEY = '';
+const SUPABASE_URL = 'https://mpzvrtzjntxloszqruqc.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_FvFcAX9SV4BpAQblqmi8nQ_QKVaa-UF';
 
 export const APP_CONFIG = Object.freeze({
     supabaseUrl: SUPABASE_URL,
