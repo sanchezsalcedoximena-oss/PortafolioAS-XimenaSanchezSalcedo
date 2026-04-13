@@ -7,7 +7,7 @@
 // ============================================
 
 const SUPABASE_URL = 'https://mpzvrtzjntxloszqruqc.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_FvFcAX9SV4BpAQblqmi8nQ_QKVaa-UF';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1wenZydHpqbnR4bG9zenFydXFjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwNDAwNjQsImV4cCI6MjA5MTYxNjA2NH0.fXB29yDu28-c2Q69Z3jvDutENToXrAtrW-kUK-zicdc';
 
 export const APP_CONFIG = Object.freeze({
     supabaseUrl: SUPABASE_URL,
