@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portafolio académico de Arquitectura de Software — Sánchez Salcedo Ximena Alexandra — UPLA">
+    <meta name="author" content="Sánchez Salcedo Ximena Alexandra">
+    <title>Portafolio Académico | Arquitectura de Software — UPLA</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════
+         ANIMATED PARTICLE BACKGROUND
+         ═══════════════════════════════════════ -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- ═══════════════════════════════════════
+         NAVIGATION (STICKY)
+         Orden: Logo · PORTAFOLIO · UNIDAD I–IV · Nombre · LOGIN
+         ═══════════════════════════════════════ -->
+    <nav id="main-nav" class="navbar">
+        <div class="nav-container">
+
+            <a href="#portafolio" class="nav-logo">
+                <div class="logo-container">
+                    <img src="img/logo.png" alt="Logo UPLA">
+                </div>
+                <span class="nav-logo-text">UPLA</span>
+            </a>
+
+            <!-- Mobile Hamburger -->
+            <button id="mobile-toggle" class="mobile-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Nav Menu -->
+            <div id="nav-menu" class="nav-menu">
+
+                <!-- PORTAFOLIO -->
+                <a href="#portafolio" class="nav-link" id="nav-portafolio">PORTAFOLIO</a>
+
+                <!-- UNIDAD I -->
+                <div class="nav-dropdown">
+                    <a href="#unidad-1" class="nav-link dropdown-toggle" id="nav-unidad1">UNIDAD I</a>
+                    <div class="dropdown-menu">
+                        <a href="#semana-1">Semana 1</a>
+                        <a href="#semana-2">Semana 2</a>
+                        <a href="#semana-3">Semana 3</a>
+                        <a href="#semana-4">Semana 4</a>
+                    </div>
+                </div>
+
+                <!-- UNIDAD II -->
+                <div class="nav-dropdown">
+                    <a href="#unidad-2" class="nav-link dropdown-toggle" id="nav-unidad2">UNIDAD II</a>
+                    <div class="dropdown-menu">
+                        <a href="#semana-5">Semana 5</a>
+                        <a href="#semana-6">Semana 6</a>
+                        <a href="#semana-7">Semana 7</a>
+                        <a href="#semana-8">Semana 8</a>
+                    </div>
+                </div>
+
+                <!-- UNIDAD III -->
+                <div class="nav-dropdown">
+                    <a href="#unidad-3" class="nav-link dropdown-toggle" id="nav-unidad3">UNIDAD III</a>
+                    <div class="dropdown-menu">
+                        <a href="#semana-9">Semana 9</a>
+                        <a href="#semana-10">Semana 10</a>
+                        <a href="#semana-11">Semana 11</a>
+                        <a href="#semana-12">Semana 12</a>
+                    </div>
+                </div>
+
+                <!-- UNIDAD IV -->
+                <div class="nav-dropdown">
+                    <a href="#unidad-4" class="nav-link dropdown-toggle" id="nav-unidad4">UNIDAD IV</a>
+                    <div class="dropdown-menu">
+                        <a href="#semana-13">Semana 13</a>
+                        <a href="#semana-14">Semana 14</a>
+                        <a href="#semana-15">Semana 15</a>
+                        <a href="#semana-16">Semana 16</a>
+                    </div>
+                </div>
+
+                <!-- Nombre -->
+                <a href="#personal" class="nav-link nav-name" id="nav-nombre">SÁNCHEZ SALCEDO XIMENA ALEXANDRA</a>
+
+                <!-- Login -->
+                <a href="admin.html" class="nav-link login-btn" id="nav-login">LOGIN</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════
+         HERO SECTION — "Arquitectura de Software"
+         ═══════════════════════════════════════ -->
+    <section id="portafolio" class="hero-section">
+        <!-- Decorative glow orbs -->
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-orb hero-orb-3"></div>
+
+        <div class="hero-content">
+            <p class="hero-subtitle">Portafolio Académico</p>
+            <h1 class="hero-title">Arquitectura de Software</h1>
+            <p class="hero-description">
+                Organización sistemática del material académico, trabajos y recursos
+                del curso, estructurado por unidades y semanas para facilitar el
+                seguimiento del progreso académico.
+            </p>
+            <a href="#unidad-1" class="hero-cta" id="hero-explore-btn">
+                Explorar Contenido
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                </svg>
+            </a>
+        </div>
+
+        <div class="hero-scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         UNITS & WEEKS — Dynamic Content
+         Rendered by js/views/ContentView.js
+         ═══════════════════════════════════════ -->
+    <main id="units-container">
+        <div style="padding: 6rem 1rem; text-align: center;">
+            <div class="spinner"></div>
+        </div>
+    </main>
+
+    <!-- ═══════════════════════════════════════
+         PERSONAL / SOBRE MÍ
+         ═══════════════════════════════════════ -->
+    <section id="personal" class="personal-section">
+        <div class="personal-inner fade-in">
+            <div class="personal-avatar animate-pulse-glow">👩‍🎓</div>
+            <h2 class="personal-title">Sobre <span>Mí</span></h2>
+            <p class="personal-bio">
+                Soy Sánchez Salcedo Ximena Alexandra, estudiante universitaria cursando la materia de Arquitectura de
+                Software.
+                Este portafolio digital recopila todo el material, trabajos y recursos generados durante el desarrollo
+                del curso, organizado por unidades y semanas para facilitar el seguimiento del progreso académico.
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-contact">
+                <a href="tel:954306310" id="footer-phone">
+                    <span>📞</span>
+                    <span>954306310</span>
+                </a>
+                <a href="mailto:r0409e@ms.upla.edu.pe" id="footer-email">
+                    <span>📧</span>
+                    <span>r0409e@ms.upla.edu.pe</span>
+                </a>
+            </div>
+            <div class="footer-brand">
+                <p>© 2026 SÁNCHEZ SALCEDO XIMENA ALEXANDRA. Todos los derechos reservados.— <span>UPLA</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main Application Script -->
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
