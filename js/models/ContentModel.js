@@ -5,6 +5,16 @@
 
 import { APP_CONFIG, getSupabaseClient } from '../config.js';
 
+// ✅ FUNCIÓN NUEVA (ANTI ERRORES DE NOMBRE)
+function sanitizeFileName(fileName) {
+    return fileName
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, "_")
+        .replace(/[^a-z0-9._-]/g, "");
+}
+
 export class ContentModel {
     constructor() {
         this._storageKey = 'portfolio_content';
@@ -98,6 +108,9 @@ export class ContentModel {
 
     async _sbUploadFile(week, file) {
         const supabase = await getSupabaseClient();
+        // LIMPIA EL NOMBRE
+        const cleanName = sanitizeFileName(file.name);
+        // USA EL NOMBRE LIMPIO
         const fileName = `week-${week}/${Date.now()}-${file.name}`;
 
         const { error: uploadError } = await supabase.storage
@@ -116,7 +129,7 @@ export class ContentModel {
             type: 'file',
             title: file.name,
             url: publicUrl,
-            file_name: file.name,
+            file_name: cleanName,   // 👈 IMPORTANTE (para eliminar luego)
             file_type: file.type,
             created_at: new Date().toISOString()
         };
