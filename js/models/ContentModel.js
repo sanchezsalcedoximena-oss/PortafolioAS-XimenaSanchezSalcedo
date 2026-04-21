@@ -111,7 +111,7 @@ export class ContentModel {
         // LIMPIA EL NOMBRE
         const cleanName = sanitizeFileName(file.name);
         // USA EL NOMBRE LIMPIO
-        const fileName = `week-${week}/${Date.now()}-${file.name}`;
+        const fileName = `week-${week}/${Date.now()}-${cleanName}`;
 
         const { error: uploadError } = await supabase.storage
             .from('portfolio-files')
