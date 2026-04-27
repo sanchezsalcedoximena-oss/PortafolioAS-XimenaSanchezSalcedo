@@ -681,7 +681,6 @@ textarea {
 
 .content-item:hover {
     background: rgba(var(--color-highlight-rgb), 0.1);
-    transform: translateX(4px);
 }
 
 .content-icon {
@@ -699,6 +698,326 @@ textarea {
 
 .content-link-anchor:hover {
     color: var(--color-accent);
+}
+
+.content-file-name {
+    color: var(--color-secondary-dark);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    word-break: break-word;
+    flex: 1;
+    min-width: 0;
+}
+
+.content-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    background: transparent;
+    color: var(--color-secondary-dark);
+    opacity: 0.55;
+}
+
+.action-btn:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+.preview-btn:hover {
+    color: var(--color-highlight);
+    background: rgba(var(--color-highlight-rgb), 0.12);
+}
+
+.download-btn:hover {
+    color: var(--color-accent);
+    background: rgba(var(--color-accent-rgb), 0.12);
+}
+
+/* ══════════════════════════════════════════
+   PREVIEW MODAL
+   ══════════════════════════════════════════ */
+
+.preview-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s ease;
+}
+
+.preview-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.preview-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.preview-container {
+    position: relative;
+    width: 92%;
+    max-width: 1100px;
+    height: 88vh;
+    background: linear-gradient(135deg,
+            rgba(var(--color-primary-dark-rgb), 0.97),
+            rgba(var(--color-secondary-dark-rgb), 0.97));
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(var(--color-highlight-rgb), 0.25);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5),
+                0 0 60px rgba(var(--color-highlight-rgb), 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.92) translateY(20px);
+    transition: transform 0.35s ease;
+}
+
+.preview-modal.active .preview-container {
+    transform: scale(1) translateY(0);
+}
+
+.preview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-bottom: 1px solid rgba(var(--color-highlight-rgb), 0.15);
+    flex-shrink: 0;
+}
+
+.preview-title {
+    color: var(--color-light);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: var(--spacing-lg);
+}
+
+.preview-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    background: rgba(var(--color-light-rgb), 0.08);
+    color: var(--color-light);
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.preview-close-btn:hover {
+    background: rgba(220, 38, 38, 0.35);
+    color: #fca5a5;
+    transform: rotate(90deg);
+}
+
+.preview-body {
+    flex: 1;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+}
+
+.preview-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: white;
+}
+
+.preview-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.preview-fallback {
+    text-align: center;
+    color: rgba(var(--color-light-rgb), 0.7);
+    padding: var(--spacing-3xl);
+}
+
+.preview-fallback-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.preview-fallback p {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.preview-open-external {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: linear-gradient(135deg, var(--color-highlight), var(--color-accent));
+    color: white;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.preview-open-external:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(var(--color-highlight-rgb), 0.4);
+}
+
+/* ══════════════════════════════════════════
+   DOWNLOAD CONFIRMATION DIALOG
+   ══════════════════════════════════════════ */
+
+.download-confirm {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.download-confirm.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.download-confirm-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.download-confirm-card {
+    position: relative;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.97),
+            rgba(255, 255, 255, 0.93));
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-2xl) var(--spacing-3xl);
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35),
+                0 0 40px rgba(var(--color-highlight-rgb), 0.1);
+    border: 1px solid rgba(var(--color-highlight-rgb), 0.15);
+    transform: scale(0.85) translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.download-confirm.active .download-confirm-card {
+    transform: scale(1) translateY(0);
+}
+
+.download-confirm-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,
+            rgba(var(--color-highlight-rgb), 0.12),
+            rgba(var(--color-accent-rgb), 0.12));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-lg);
+    color: var(--color-accent);
+}
+
+.download-confirm-title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.download-confirm-filename {
+    font-size: var(--font-size-sm);
+    color: var(--color-secondary-dark);
+    opacity: 0.75;
+    margin-bottom: var(--spacing-xl);
+    word-break: break-word;
+    font-style: italic;
+}
+
+.download-confirm-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+}
+
+.download-confirm-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-2xl);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: none;
+}
+
+.confirm-yes {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-highlight));
+    color: white;
+    box-shadow: 0 4px 16px rgba(var(--color-accent-rgb), 0.35);
+}
+
+.confirm-yes:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(var(--color-accent-rgb), 0.5);
+}
+
+.confirm-no {
+    background: rgba(var(--color-primary-dark-rgb), 0.06);
+    color: var(--color-primary-dark);
+    border: 1px solid rgba(var(--color-primary-dark-rgb), 0.15);
+}
+
+.confirm-no:hover {
+    background: rgba(220, 38, 38, 0.08);
+    color: #dc2626;
+    border-color: rgba(220, 38, 38, 0.25);
+    transform: translateY(-2px);
 }
 
 /* ══════════════════════════════════════════
