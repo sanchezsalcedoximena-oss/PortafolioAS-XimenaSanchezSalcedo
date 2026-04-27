@@ -24,27 +24,47 @@ export const APP_CONFIG = Object.freeze({
     units: [
         {
             id: 1,
-            title: 'UNIDAD I',
+            title: 'UNIDAD I: FUNDAMENTOS DE ARQUITECTURA DE SOFTWARE',
             description: 'En esta unidad se tratará el modelo MVC',
-            weeks: [1, 2, 3, 4]
+            weeks: [
+                { number: 1, name: 'CONCEPTO DE ARQUITECTURA DE SOFTWARE' },
+                { number: 2, name: 'ESTÁNDARES INTERNACIONALES' },
+                { number: 3, name: 'DISEÑO ARQUITECTÓNICO' },
+                { number: 4, name: 'CRITERIOS DE CALIDAD' }
+            ]
         },
         {
             id: 2,
-            title: 'UNIDAD II',
+            title: 'UNIDAD II: PRINCIPIOS Y PATRONES DE DISEÑO',
             description: 'En esta unidad se abordarán los principios SOLID y patrones de diseño',
-            weeks: [5, 6, 7, 8]
+            weeks: [
+                { number: 5, name: 'PRINCIPIOS SOLID' },
+                { number: 6, name: 'PATRONES CREACIONALES' },
+                { number: 7, name: 'PATRONES ESTRUCTURALES' },
+                { number: 8, name: 'PATRONES DE COMPORTAMIENTO' }
+            ]
         },
         {
             id: 3,
-            title: 'UNIDAD III',
+            title: 'UNIDAD III: ARQUITECTURAS Y MICROSERVICIOS',
             description: 'En esta unidad se trabajará con arquitecturas de software y microservicios',
-            weeks: [9, 10, 11, 12]
+            weeks: [
+                { number: 9, name: 'ARQUITECTURA EN CAPAS' },
+                { number: 10, name: 'ARQUITECTURA ORIENTADA A SERVICIOS' },
+                { number: 11, name: 'MICROSERVICIOS' },
+                { number: 12, name: 'CONTENEDORES Y DESPLIEGUE' }
+            ]
         },
         {
             id: 4,
-            title: 'UNIDAD IV',
+            title: 'UNIDAD IV: PROYECTO FINAL E INTEGRACIÓN',
             description: 'En esta unidad se integrarán todos los conceptos en un proyecto final',
-            weeks: [13, 14, 15, 16]
+            weeks: [
+                { number: 13, name: 'PLANIFICACIÓN DEL PROYECTO' },
+                { number: 14, name: 'DESARROLLO E IMPLEMENTACIÓN' },
+                { number: 15, name: 'PRUEBAS Y DOCUMENTACIÓN' },
+                { number: 16, name: 'PRESENTACIÓN FINAL' }
+            ]
         }
     ],
 

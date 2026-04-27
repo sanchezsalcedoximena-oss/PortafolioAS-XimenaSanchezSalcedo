@@ -24,7 +24,7 @@ export class ContentView {
                     </div>
                     <div class="weeks-grid stagger-children">
                         ${unit.weeks.map((week, idx) =>
-                            this._renderWeekCard(week, contentByWeek[week] || [], idx)
+                            this._renderWeekCard(week, contentByWeek[week.number] || [], idx)
                         ).join('')}
                     </div>
                 </div>
@@ -35,17 +35,20 @@ export class ContentView {
     // ── Single Week Card ────────────────────────
 
     _renderWeekCard(week, content, index) {
+        const weekNum = week.number;
+        const weekName = week.name || '';
         const hasContent = content.length > 0;
 
         return `
-            <div id="semana-${week}" class="week-card slide-up"
+            <div id="semana-${weekNum}" class="week-card slide-up"
                  style="transition-delay: ${index * 0.1}s">
                 <div class="week-card-header">
-                    <span class="week-number">Semana ${week}</span>
+                    <span class="week-number">Semana ${weekNum}</span>
                     <span class="week-badge ${hasContent ? 'active' : 'empty'}">
                         ${hasContent ? content.length + ' recurso(s)' : 'Vacío'}
                     </span>
                 </div>
+                ${weekName ? `<div class="week-name">${weekName}</div>` : ''}
                 <div class="week-card-body">
                     ${hasContent
                         ? this._renderContentList(content)

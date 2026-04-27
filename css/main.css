@@ -294,7 +294,7 @@ textarea {
     top: calc(100% + 4px);
     left: 50%;
     transform: translateX(-50%) translateY(-8px);
-    min-width: 180px;
+    min-width: 300px;
     background: linear-gradient(135deg,
             rgba(var(--color-primary-dark-rgb), 0.98),
             rgba(var(--color-secondary-dark-rgb), 0.98));
@@ -636,6 +636,19 @@ textarea {
 .week-badge.empty {
     background: rgba(255, 255, 255, 0.1);
     color: rgba(var(--color-light-rgb), 0.55);
+}
+
+.week-name {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--color-accent);
+    background: linear-gradient(135deg,
+            rgba(var(--color-highlight-rgb), 0.08),
+            rgba(var(--color-accent-rgb), 0.06));
+    border-bottom: 1px solid rgba(var(--color-highlight-rgb), 0.1);
+    text-transform: uppercase;
 }
 
 .week-card-body {
